@@ -1,0 +1,1 @@
+POC project for using Travis-CI
