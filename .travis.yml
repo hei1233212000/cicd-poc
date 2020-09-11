@@ -4,5 +4,15 @@ jdk:
 before_install:
   - chmod +x gradlew
   - chmod +x gradle/wrapper/gradle-wrapper.jar
-script:
-  - ./gradlew clean build
+stages:
+  - compile
+  - verify
+  - deploy
+jobs:
+  include:
+    - stage: compile
+      name: "compile without running any test"
+      script: ./gradlew clean build -x test
+    - stage: verify
+      name: "verify the project"
+      script: ./gradlew verify
