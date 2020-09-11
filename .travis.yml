@@ -14,16 +14,24 @@ jobs:
       install:
         - chmod +x gradlew
         - chmod +x gradle/wrapper/gradle-wrapper.jar
-      script: skip
+      script: ./gradlew clean
     - stage: compile
       name: "compile without running any test"
+      install:
+        - true
       script: ./gradlew clean build -x test
     - stage: check
       name: "check the project"
+      install:
+        - true
       script: ./gradlew check
     - stage: deploy
       name: "fake deployment"
+      install:
+        - true
       script: skip
     - stage: post-deploy
+      install:
+        - true
       name: "post deploy"
       script: ls -la
