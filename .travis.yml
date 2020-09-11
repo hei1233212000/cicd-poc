@@ -1,16 +1,20 @@
 language: java
 jdk:
   - openjdk8
-before_install:
-  - chmod +x gradlew
-  - chmod +x gradle/wrapper/gradle-wrapper.jar
 stages:
+  - install-gradle
   - compile
   - check
   - deploy
   - post-deploy
 jobs:
   include:
+    - stage: install-gradle
+      name: "install gradle"
+      install:
+        - chmod +x gradlew
+        - chmod +x gradle/wrapper/gradle-wrapper.jar
+      script: skip
     - stage: compile
       name: "compile without running any test"
       script: ./gradlew clean build -x test
