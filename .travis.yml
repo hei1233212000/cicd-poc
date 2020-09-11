@@ -7,6 +7,8 @@ before_install:
 stages:
   - compile
   - check
+  - deploy
+  - post-deploy
 jobs:
   include:
     - stage: compile
@@ -15,3 +17,9 @@ jobs:
     - stage: check
       name: "check the project"
       script: ./gradlew check
+    - stage: deploy
+      name: "fake deployment"
+      script: skip
+    - stage: post-deploy
+      name: "post deploy"
+      script: ls -la
