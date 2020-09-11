@@ -13,6 +13,6 @@ jobs:
     - stage: compile
       name: "compile without running any test"
       script: ./gradlew clean build -x test
-    - stage: verify
-      name: "verify the project"
-      script: ./gradlew verify
+    - stage: check
+      name: "check the project"
+      script: ./gradlew check
