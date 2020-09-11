@@ -6,8 +6,7 @@ before_install:
   - chmod +x gradle/wrapper/gradle-wrapper.jar
 stages:
   - compile
-  - verify
-  - deploy
+  - check
 jobs:
   include:
     - stage: compile
