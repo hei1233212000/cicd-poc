@@ -15,21 +15,21 @@ jobs:
         - chmod +x gradlew
         - chmod +x gradle/wrapper/gradle-wrapper.jar
       script: ./gradlew clean
+      skip_cleanup: true
     - stage: compile
       name: "compile without running any test"
-      install:
-        - true
       script: ./gradlew clean build -x test
+      skip_cleanup: true
     - stage: check
       name: "check the project"
-      install:
-        - true
       script: ./gradlew check
+      skip_cleanup: true
     - stage: deploy
       name: "fake deployment"
       install:
         - true
       script: skip
+      skip_cleanup: true
     - stage: post-deploy
       install:
         - true
